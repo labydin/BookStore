@@ -14,10 +14,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
-            
-            window = UIWindow(windowScene: windowScene)
-            window?.rootViewController = SearchViewController() // 원하는 뷰컨트롤러로 변경해주기
-            window?.makeKeyAndVisible()
+        window = UIWindow(windowScene: windowScene)
+        
+        let tabbar = UITabBarController()
+        
+        let first = SearchViewController()
+        let second = WishlistViewController()
+        first.title = "검색"
+        second.title = "담은 책 리스트"
+        
+        tabbar.setViewControllers([first, second], animated: false)
+        tabbar.modalPresentationStyle = .fullScreen
+        tabbar.tabBar.backgroundColor = .white
+        
+        window?.rootViewController = tabbar // 원하는 뷰컨트롤러로 변경해주기
+        window?.makeKeyAndVisible()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

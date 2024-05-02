@@ -17,6 +17,13 @@ class SearchViewController: UIViewController {
         return bar
     }()
     
+    private let headerLabel: UILabel = {
+        let label = UILabel()
+        label.text = "검색 결과"
+        label.font = .boldSystemFont(ofSize: 23)
+        return label
+    }()
+    
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
@@ -30,11 +37,7 @@ class SearchViewController: UIViewController {
         return cv
     }()
     
-    private let tabBar: UITabBar = {
-        let tabbar = UITabBar()
-        tabbar.barStyle = .default
-        return tabbar
-    }()
+    private let tabBar = UITabBar()
     
     
 
@@ -62,38 +65,39 @@ class SearchViewController: UIViewController {
         
         collectionView.register(CollectionViewCell.self, forCellWithReuseIdentifier: CollectionViewCell.identifier)
         
-        
     }
     
     
     func setupConstraints() {
-        [searchBar, collectionView, tabBar].forEach {
+        [searchBar, headerLabel, collectionView, tabBar].forEach {
             view.addSubview($0)
         }
        
         searchBar.translatesAutoresizingMaskIntoConstraints = false
+        headerLabel.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        tabBar.translatesAutoresizingMaskIntoConstraints = false
+        
         NSLayoutConstraint.activate([
             searchBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             searchBar.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             searchBar.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-        ])
-    
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: 20),
+            
+            headerLabel.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: 20),
+            headerLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
+            headerLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+
+            collectionView.topAnchor.constraint(equalTo: headerLabel.bottomAnchor, constant: 0),
             collectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: tabBar.topAnchor)
-        ])
-        
-        tabBar.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
+            collectionView.bottomAnchor.constraint(equalTo: tabBar.topAnchor),
+
             tabBar.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             tabBar.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             tabBar.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
-
+    
 }
 
 
@@ -108,6 +112,13 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
         cell.backgroundColor = .gray
         
         return cell
+    }
+
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("\(indexPath)")
+        
+        self.present(DetailViewController(), animated: true, completion: nil)
     }
     
     
