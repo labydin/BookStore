@@ -34,7 +34,37 @@ class DetailViewController: UIViewController {
     }
     
     // MARK: - UI 세팅
-
+    func configureUI() {
+        titleLabel.font = .boldSystemFont(ofSize: 23)
+        titleLabel.textAlignment = .center
+        titleLabel.text = "제목 테스트"
+        
+        authorLabel.font = .systemFont(ofSize: 17)
+        authorLabel.textColor = .systemGray
+        authorLabel.textAlignment = .center
+        authorLabel.text = "테스트지롱"
+        
+        priceLabel.font = .systemFont(ofSize: 20, weight: .semibold)
+        priceLabel.textAlignment = .center
+        priceLabel.text = "책값 너무 비쌈"
+        
+        infoStackView.axis = .vertical
+        infoStackView.spacing = 5
+        
+        closeButton.setImage(UIImage(systemName: "xmark"), for: .normal)
+        closeButton.tintColor = .white
+        closeButton.backgroundColor = .systemGray
+        closeButton.layer.cornerRadius = 20
+        
+        saveButton.setTitle("담기", for: .normal)
+        saveButton.titleLabel?.font = .systemFont(ofSize: 20, weight: .semibold)
+        saveButton.setTitleColor(.white, for: .normal)
+        saveButton.backgroundColor = .systemGreen
+        saveButton.layer.cornerRadius = 20
+        
+        buttonStackView.axis = .horizontal
+        buttonStackView.spacing = 10
+    }
     
     func setupConstraints() {
         [titleLabel, authorLabel, thumbnailImage, priceLabel, descriptionLabel].forEach {
