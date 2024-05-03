@@ -11,15 +11,15 @@ class CollectionViewCell: UICollectionViewCell {
     
     static let identifier = "CollectionCell"
     
-    private let thumbnailImage = UIImageView()
-    private let titleLabel: UILabel = {
+    let thumbnailImage = UIImageView()
+    let titleLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 18, weight: .semibold)
         label.textAlignment = .center
         label.text = "여행의 이유"
         return label
     }()
-    private let authorLabel: UILabel = {
+    let authorLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 15)
         label.textColor = .systemGray4
@@ -27,7 +27,7 @@ class CollectionViewCell: UICollectionViewCell {
         label.text = "김영하"
         return label
     }()
-    private let priceLabel: UILabel = {
+    let priceLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 15)
         label.textAlignment = .center

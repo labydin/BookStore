@@ -12,9 +12,9 @@ class TableViewCell: UITableViewCell {
     
     static let identifier = "TableCell"
     
-    private let titleLabel = UILabel()
-    private let authorLabel = UILabel()
-    private let priceLabel = UILabel()
+    let titleLabel = UILabel()
+    let authorLabel = UILabel()
+    let priceLabel = UILabel()
     
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {

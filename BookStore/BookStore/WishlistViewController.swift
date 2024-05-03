@@ -10,9 +10,11 @@ import SnapKit
 
 class WishlistViewController: UIViewController {
     
+    lazy var deleteButton = UIBarButtonItem()
     lazy var addButton = UIBarButtonItem()
     private let tableView = UITableView()
     
+    var wishList: [WishList] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,8 +27,6 @@ class WishlistViewController: UIViewController {
     
     // MARK: - UI 세팅
     func setNavigationBar() {
-        //UIBarButtonItem(title: "추가", style: .plain, target: self, action: #selector(addButtonTapped))
-        
         let appearance = UINavigationBarAppearance()
 
         title = "담은 책"
@@ -36,10 +36,11 @@ class WishlistViewController: UIViewController {
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.compactAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
-        UINavigationBar.appearance().prefersLargeTitles = true
         
+        deleteButton = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(deleteButtonTapped))
+        addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
+        self.navigationItem.leftBarButtonItem = self.deleteButton
         self.navigationItem.rightBarButtonItem = self.addButton
-        
     }
     
     func setTableView() {
@@ -63,8 +64,15 @@ class WishlistViewController: UIViewController {
         }
     }
     
+    @objc func deleteButtonTapped() {
+        // 배열 삭제
+        wishList.removeAll()
+        tableView.reloadData()
+        // 코어데이터 삭제
+    }
+    
     @objc func addButtonTapped() {
-        
+        navigationController?.pushViewController(SearchViewController(), animated: true)
     }
 
 }
@@ -72,14 +80,19 @@ class WishlistViewController: UIViewController {
 
 extension WishlistViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return wishList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCell.identifier, for: indexPath) as? TableViewCell
             else { return UITableViewCell() }
-        print("cell 띄워줭")
+        
         cell.layer.borderWidth = 2
+        
+        let index = wishList[indexPath.row]
+        cell.titleLabel.text = index.title ?? ""
+        cell.authorLabel.text = index.author ?? ""
+        cell.priceLabel.text = "\(index.price)" + " 원"
         
         return cell
     }

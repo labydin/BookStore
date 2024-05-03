@@ -18,6 +18,7 @@
 		9C3C56542BE259DF000FE271 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3C56532BE259DF000FE271 /* CollectionViewCell.swift */; };
 		9CD6BFDD2BE3A4320004C81B /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD6BFDC2BE3A4320004C81B /* TableViewCell.swift */; };
 		9CD6BFE02BE3A5460004C81B /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 9CD6BFDF2BE3A5460004C81B /* SnapKit */; };
+		9CDF20EB2BE4CC5E00368EA4 /* BookData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9CDF20E92BE4CC5E00368EA4 /* BookData.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		9C3C56512BE247C1000FE271 /* WishlistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistViewController.swift; sourceTree = "<group>"; };
 		9C3C56532BE259DF000FE271 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		9CD6BFDC2BE3A4320004C81B /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		9CDF20EA2BE4CC5E00368EA4 /* BookData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BookData.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 				9C3C563E2BE2395C000FE271 /* Assets.xcassets */,
 				9C3C56402BE2395C000FE271 /* LaunchScreen.storyboard */,
 				9C3C56432BE2395C000FE271 /* Info.plist */,
+				9CDF20E92BE4CC5E00368EA4 /* BookData.xcdatamodeld */,
 			);
 			path = BookStore;
 			sourceTree = "<group>";
@@ -160,6 +163,7 @@
 			files = (
 				9C3C564E2BE23F3E000FE271 /* SearchViewController.swift in Sources */,
 				9C3C56362BE2395B000FE271 /* AppDelegate.swift in Sources */,
+				9CDF20EB2BE4CC5E00368EA4 /* BookData.xcdatamodeld in Sources */,
 				9C3C56542BE259DF000FE271 /* CollectionViewCell.swift in Sources */,
 				9C3C56522BE247C1000FE271 /* WishlistViewController.swift in Sources */,
 				9C3C56382BE2395B000FE271 /* SceneDelegate.swift in Sources */,
@@ -414,6 +418,20 @@
 			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		9CDF20E92BE4CC5E00368EA4 /* BookData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				9CDF20EA2BE4CC5E00368EA4 /* BookData.xcdatamodel */,
+			);
+			currentVersion = 9CDF20EA2BE4CC5E00368EA4 /* BookData.xcdatamodel */;
+			name = BookData.xcdatamodeld;
+			path = "/Users/Junyeong/Desktop/Github/7. BookStore/BookStore/BookStore/BookData.xcdatamodeld";
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 9C3C562A2BE2395B000FE271 /* Project object */;
 }
