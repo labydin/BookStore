@@ -9,7 +9,7 @@ import UIKit
 
 class DetailViewController: UIViewController {
     
-    static let identifier = "detailVC"
+    static let identifier = "DetailVC"
 
     private let titleLabel = UILabel()
     private let authorLabel = UILabel()

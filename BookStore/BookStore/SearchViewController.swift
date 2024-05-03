@@ -36,10 +36,7 @@ class SearchViewController: UIViewController {
         
         return cv
     }()
-    
-    private let tabBar = UITabBar()
-    
-    
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,14 +66,13 @@ class SearchViewController: UIViewController {
     
     
     func setupConstraints() {
-        [searchBar, headerLabel, collectionView, tabBar].forEach {
+        [searchBar, headerLabel, collectionView].forEach {
             view.addSubview($0)
         }
        
         searchBar.translatesAutoresizingMaskIntoConstraints = false
         headerLabel.translatesAutoresizingMaskIntoConstraints = false
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        tabBar.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             searchBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
@@ -90,11 +86,7 @@ class SearchViewController: UIViewController {
             collectionView.topAnchor.constraint(equalTo: headerLabel.bottomAnchor, constant: 0),
             collectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: tabBar.topAnchor),
-
-            tabBar.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            tabBar.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            tabBar.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+            collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
     

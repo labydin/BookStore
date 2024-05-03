@@ -16,6 +16,8 @@
 		9C3C56502BE2477D000FE271 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3C564F2BE2477D000FE271 /* DetailViewController.swift */; };
 		9C3C56522BE247C1000FE271 /* WishlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3C56512BE247C1000FE271 /* WishlistViewController.swift */; };
 		9C3C56542BE259DF000FE271 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3C56532BE259DF000FE271 /* CollectionViewCell.swift */; };
+		9CD6BFDD2BE3A4320004C81B /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD6BFDC2BE3A4320004C81B /* TableViewCell.swift */; };
+		9CD6BFE02BE3A5460004C81B /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 9CD6BFDF2BE3A5460004C81B /* SnapKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,7 @@
 		9C3C564F2BE2477D000FE271 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		9C3C56512BE247C1000FE271 /* WishlistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistViewController.swift; sourceTree = "<group>"; };
 		9C3C56532BE259DF000FE271 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		9CD6BFDC2BE3A4320004C81B /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CD6BFE02BE3A5460004C81B /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,6 +72,7 @@
 				9C3C56532BE259DF000FE271 /* CollectionViewCell.swift */,
 				9C3C564F2BE2477D000FE271 /* DetailViewController.swift */,
 				9C3C56512BE247C1000FE271 /* WishlistViewController.swift */,
+				9CD6BFDC2BE3A4320004C81B /* TableViewCell.swift */,
 				9C3C563B2BE2395B000FE271 /* Main.storyboard */,
 				9C3C563E2BE2395C000FE271 /* Assets.xcassets */,
 				9C3C56402BE2395C000FE271 /* LaunchScreen.storyboard */,
@@ -92,6 +97,9 @@
 			dependencies = (
 			);
 			name = BookStore;
+			packageProductDependencies = (
+				9CD6BFDF2BE3A5460004C81B /* SnapKit */,
+			);
 			productName = BookStore;
 			productReference = 9C3C56322BE2395B000FE271 /* BookStore.app */;
 			productType = "com.apple.product-type.application";
@@ -120,6 +128,9 @@
 				Base,
 			);
 			mainGroup = 9C3C56292BE2395B000FE271;
+			packageReferences = (
+				9CD6BFDE2BE3A5460004C81B /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = 9C3C56332BE2395B000FE271 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -152,6 +163,7 @@
 				9C3C56542BE259DF000FE271 /* CollectionViewCell.swift in Sources */,
 				9C3C56522BE247C1000FE271 /* WishlistViewController.swift in Sources */,
 				9C3C56382BE2395B000FE271 /* SceneDelegate.swift in Sources */,
+				9CD6BFDD2BE3A4320004C81B /* TableViewCell.swift in Sources */,
 				9C3C56502BE2477D000FE271 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -311,7 +323,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -343,7 +355,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -383,6 +395,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9CD6BFDE2BE3A5460004C81B /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9CD6BFDF2BE3A5460004C81B /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9CD6BFDE2BE3A5460004C81B /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9C3C562A2BE2395B000FE271 /* Project object */;
 }

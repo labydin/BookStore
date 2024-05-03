@@ -12,7 +12,7 @@
         <!--Search View Controller-->
         <scene sceneID="Cgb-9z-ak9">
             <objects>
-                <viewController id="a7c-DZ-Oe4" customClass="SearchViewController" sceneMemberID="viewController">
+                <viewController id="a7c-DZ-Oe4" customClass="SearchViewController" customModule="BookStore" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="geE-2t-E26">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

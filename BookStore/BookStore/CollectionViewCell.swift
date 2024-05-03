@@ -9,21 +9,36 @@ import UIKit
 
 class CollectionViewCell: UICollectionViewCell {
     
-    static let identifier = "collectionCell"
+    static let identifier = "CollectionCell"
     
     private let thumbnailImage = UIImageView()
-    private let titleLabel = UILabel()
+    private let titleLabel: UILabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 18, weight: .semibold)
+        label.textAlignment = .center
+        label.text = "여행의 이유"
+        return label
+    }()
     private let authorLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 15)
-        label.textColor = .systemGray6
+        label.textColor = .systemGray4
+        label.textAlignment = .center
+        label.text = "김영하"
         return label
     }()
-    private let priceLabel = UILabel()
+    private let priceLabel: UILabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 15)
+        label.textAlignment = .center
+        label.text = "비싸용"
+        return label
+    }()
     lazy var stackView: UIStackView = {
         let stack = UIStackView(arrangedSubviews: [thumbnailImage, titleLabel, authorLabel, priceLabel])
         stack.spacing = 0
         stack.distribution = .fill
+        stack.axis = .vertical
         return stack
     }()
 

@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let tabbar = UITabBarController()
         
         let first = SearchViewController()
-        let second = WishlistViewController()
+        let second = UINavigationController(rootViewController: WishlistViewController())
         first.title = "검색"
         second.title = "담은 책 리스트"
         
@@ -29,6 +29,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window?.rootViewController = tabbar // 원하는 뷰컨트롤러로 변경해주기
         window?.makeKeyAndVisible()
+
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
