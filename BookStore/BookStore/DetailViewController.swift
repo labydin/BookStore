@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class DetailViewController: UIViewController {
     
@@ -48,8 +49,10 @@ class DetailViewController: UIViewController {
         priceLabel.textAlignment = .center
         priceLabel.text = "책값 너무 비쌈"
         
+        descriptionLabel.text = "이 책은 영국에서 시작되어 어쩌구 저쩌구"
+        
         infoStackView.axis = .vertical
-        infoStackView.spacing = 5
+        infoStackView.spacing = 10
         
         closeButton.setImage(UIImage(systemName: "xmark"), for: .normal)
         closeButton.tintColor = .white
@@ -73,19 +76,17 @@ class DetailViewController: UIViewController {
         [closeButton, saveButton].forEach { buttonStackView.addArrangedSubview($0) }
         [infoStackView, buttonStackView].forEach { view.addSubview($0) }
         
-//        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-//        authorLabel.translatesAutoresizingMaskIntoConstraints = false
-//        thumbnailImage.translatesAutoresizingMaskIntoConstraints = false
-//        priceLabel.translatesAutoresizingMaskIntoConstraints = false
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        authorLabel.translatesAutoresizingMaskIntoConstraints = false
+        thumbnailImage.translatesAutoresizingMaskIntoConstraints = false
+        priceLabel.translatesAutoresizingMaskIntoConstraints = false
         infoStackView.translatesAutoresizingMaskIntoConstraints = false
         
         closeButton.translatesAutoresizingMaskIntoConstraints = false
         buttonStackView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-//            titleLabel.centerXAnchor.constraint(equalTo: infoStackView.centerXAnchor),
-//            authorLabel.centerXAnchor.constraint(equalTo: infoStackView.centerXAnchor),
-//            thumbnailImage.centerXAnchor.constraint(equalTo: infoStackView.centerXAnchor),
-//            priceLabel.centerXAnchor.constraint(equalTo: infoStackView.centerXAnchor),
+            thumbnailImage.heightAnchor.constraint(equalTo: thumbnailImage.widthAnchor, multiplier: 0.5),
+            descriptionLabel.heightAnchor.constraint(equalTo: thumbnailImage.heightAnchor),
             
             infoStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30),
             infoStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10),

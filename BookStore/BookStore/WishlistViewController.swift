@@ -72,7 +72,7 @@ class WishlistViewController: UIViewController {
     }
     
     @objc func addButtonTapped() {
-        navigationController?.pushViewController(SearchViewController(), animated: true)
+
     }
 
 }
@@ -86,8 +86,6 @@ extension WishlistViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCell.identifier, for: indexPath) as? TableViewCell
             else { return UITableViewCell() }
-        
-        cell.layer.borderWidth = 2
         
         let index = wishList[indexPath.row]
         cell.titleLabel.text = index.title ?? ""

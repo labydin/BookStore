@@ -14,6 +14,7 @@ class SearchViewController: UIViewController {
         let bar = UISearchBar()
         bar.layer.cornerRadius = 10
         bar.placeholder = "찾으시는 도서를 입력하세요."
+        bar.returnKeyType = .go
         return bar
     }()
     

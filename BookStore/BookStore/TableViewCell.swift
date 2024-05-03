@@ -30,14 +30,14 @@ class TableViewCell: UITableViewCell {
     
     
     func configureUI() {
-        titleLabel.text = "읽기 쉬운 코드"
+        contentView.layer.borderWidth = 2
+        contentView.layer.cornerRadius = 15
+        
         titleLabel.font = .systemFont(ofSize: 20, weight: .semibold)
         
-        authorLabel.text = "마크 시먼"
         authorLabel.textColor = .systemGray
         authorLabel.font = .systemFont(ofSize: 15)
         
-        priceLabel.text = "30,000원"
         priceLabel.font = .systemFont(ofSize: 17)
     }
     
