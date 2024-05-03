@@ -10,7 +10,7 @@ import SnapKit
 
 class WishlistViewController: UIViewController {
     
-    private let appearance = UINavigationBarAppearance()
+    lazy var addButton = UIBarButtonItem()
     private let tableView = UITableView()
     
     
@@ -18,8 +18,28 @@ class WishlistViewController: UIViewController {
         super.viewDidLoad()
 
         view.backgroundColor = .white
+        setNavigationBar()
         setTableView()
         setupConstraints()
+    }
+    
+    // MARK: - UI 세팅
+    func setNavigationBar() {
+        //UIBarButtonItem(title: "추가", style: .plain, target: self, action: #selector(addButtonTapped))
+        
+        let appearance = UINavigationBarAppearance()
+
+        title = "담은 책"
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = .white
+        navigationController?.navigationBar.tintColor = .systemBlue
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.compactAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        UINavigationBar.appearance().prefersLargeTitles = true
+        
+        self.navigationItem.rightBarButtonItem = self.addButton
+        
     }
     
     func setTableView() {
@@ -31,12 +51,7 @@ class WishlistViewController: UIViewController {
         
         tableView.rowHeight = 100
     }
-    
-    func setNavigationBar() {
-        appearance.configureWithOpaqueBackground()
 
-    }
-    
     func setupConstraints() {
         view.addSubview(tableView)
         
@@ -46,6 +61,10 @@ class WishlistViewController: UIViewController {
             make.trailing.equalTo(view.safeAreaLayoutGuide.snp.trailing).inset(10)
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).inset(10)
         }
+    }
+    
+    @objc func addButtonTapped() {
+        
     }
 
 }
