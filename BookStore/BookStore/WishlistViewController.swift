@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import CoreData
 
 class WishlistViewController: UIViewController {
     
@@ -14,7 +15,11 @@ class WishlistViewController: UIViewController {
     lazy var addButton = UIBarButtonItem()
     private let tableView = UITableView()
     
+    var persistentContainer: NSPersistentContainer? {
+            (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer
+        }
     var wishList: [WishList] = []
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,17 +85,17 @@ class WishlistViewController: UIViewController {
 
 extension WishlistViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return wishList.count
+        return 3//wishList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCell.identifier, for: indexPath) as? TableViewCell
             else { return UITableViewCell() }
         
-        let index = wishList[indexPath.row]
-        cell.titleLabel.text = index.title ?? ""
-        cell.authorLabel.text = index.author ?? ""
-        cell.priceLabel.text = "\(index.price)" + " 원"
+//        let index = wishList[indexPath.row]
+//        cell.titleLabel.text = index.title ?? ""
+//        cell.authorsLabel.text = index.authors ?? ""
+//        cell.priceLabel.text = "\(index.price)" + " 원"
         
         return cell
     }

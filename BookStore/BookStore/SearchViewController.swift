@@ -37,6 +37,9 @@ class SearchViewController: UIViewController {
         
         return cv
     }()
+    
+    let networkManager = NetworkManager()
+    private var bookResult: RemoteBook? = nil
 
 
     override func viewDidLoad() {
@@ -46,6 +49,7 @@ class SearchViewController: UIViewController {
         setSearchBar()
         setCollectionView()
         setupConstraints()
+
     }
     
     // MARK: - UI setting
@@ -102,7 +106,12 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.identifier, for: indexPath) as? CollectionViewCell else { return UICollectionViewCell() }
         
-        cell.backgroundColor = .gray
+        cell.titleLabel.text = bookResult?.title
+        cell.authorLabel.text = bookResult?.authors
+        if let data = try? Data(contentsOf: bookResult!.thumbnail), let image = UIImage(data: data) {
+            cell.thumbnailImage.image = image
+        }
+        cell.priceLabel.text = "\(String(describing: bookResult?.price))" + " 원"
         
         return cell
     }

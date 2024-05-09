@@ -13,10 +13,10 @@ class DetailViewController: UIViewController {
     static let identifier = "DetailVC"
 
     private let titleLabel = UILabel()
-    private let authorLabel = UILabel()
+    private let authorsLabel = UILabel()
     private let thumbnailImage = UIImageView()
     private let priceLabel = UILabel()
-    private let descriptionLabel = UILabel()
+    private let contentsLabel = UILabel()
     private let infoStackView = UIStackView()
     
     private let closeButton = UIButton()
@@ -40,16 +40,16 @@ class DetailViewController: UIViewController {
         titleLabel.textAlignment = .center
         titleLabel.text = "제목 테스트"
         
-        authorLabel.font = .systemFont(ofSize: 17)
-        authorLabel.textColor = .systemGray
-        authorLabel.textAlignment = .center
-        authorLabel.text = "테스트지롱"
+        authorsLabel.font = .systemFont(ofSize: 17)
+        authorsLabel.textColor = .systemGray
+        authorsLabel.textAlignment = .center
+        authorsLabel.text = "테스트지롱"
         
         priceLabel.font = .systemFont(ofSize: 20, weight: .semibold)
         priceLabel.textAlignment = .center
         priceLabel.text = "책값 너무 비쌈"
         
-        descriptionLabel.text = "이 책은 영국에서 시작되어 어쩌구 저쩌구"
+        contentsLabel.text = "이 책은 영국에서 시작되어 어쩌구 저쩌구"
         
         infoStackView.axis = .vertical
         infoStackView.spacing = 10
@@ -70,14 +70,14 @@ class DetailViewController: UIViewController {
     }
     
     func setupConstraints() {
-        [titleLabel, authorLabel, thumbnailImage, priceLabel, descriptionLabel].forEach {
+        [titleLabel, authorsLabel, thumbnailImage, priceLabel, contentsLabel].forEach {
             infoStackView.addArrangedSubview($0)
         }
         [closeButton, saveButton].forEach { buttonStackView.addArrangedSubview($0) }
         [infoStackView, buttonStackView].forEach { view.addSubview($0) }
         
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        authorLabel.translatesAutoresizingMaskIntoConstraints = false
+        authorsLabel.translatesAutoresizingMaskIntoConstraints = false
         thumbnailImage.translatesAutoresizingMaskIntoConstraints = false
         priceLabel.translatesAutoresizingMaskIntoConstraints = false
         infoStackView.translatesAutoresizingMaskIntoConstraints = false
@@ -86,7 +86,7 @@ class DetailViewController: UIViewController {
         buttonStackView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             thumbnailImage.heightAnchor.constraint(equalTo: thumbnailImage.widthAnchor, multiplier: 0.5),
-            descriptionLabel.heightAnchor.constraint(equalTo: thumbnailImage.heightAnchor),
+            contentsLabel.heightAnchor.constraint(equalTo: thumbnailImage.heightAnchor),
             
             infoStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30),
             infoStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10),
