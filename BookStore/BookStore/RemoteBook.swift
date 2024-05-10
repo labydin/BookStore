@@ -10,7 +10,7 @@ import Foundation
 struct RemoteBook: Decodable {
     let title: String
     let authors: String
-    let thumbnail: String
+    let thumbnail: URL
     let price: Int32
     let contents: String
 }

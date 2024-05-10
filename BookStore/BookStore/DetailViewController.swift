@@ -23,6 +23,9 @@ class DetailViewController: UIViewController {
     private let saveButton = UIButton()
     private let buttonStackView = UIStackView()
 
+    var persistentContainer: NSPersistentContainer? {
+        (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -105,5 +108,17 @@ class DetailViewController: UIViewController {
     // MARK: - 버튼 기능 구현
     @objc func closeButtonTapped() {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    @objc func saveButtonTapped() {
+        guard let context = self.persistentContainer?.viewContext, let bookResult = self.bookResult else { return }
+        
+        let wishlist = WishList(context: context)
+        
+        wishlist.authors = authorsLabel.text
+        wishlist.title = titleLabel.text
+        wishlist.price = Int32(priceLabel.text)
+        
+        try? context.save()
     }
 }

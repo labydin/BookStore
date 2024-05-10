@@ -39,7 +39,7 @@ class SearchViewController: UIViewController {
     }()
     
     let networkManager = NetworkManager()
-    private var bookResult: RemoteBook? = nil
+    private var bookResult: [RemoteBook]? = nil
 
 
     override func viewDidLoad() {
@@ -100,7 +100,7 @@ class SearchViewController: UIViewController {
 
 extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return bookResult.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

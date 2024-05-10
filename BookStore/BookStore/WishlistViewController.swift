@@ -92,10 +92,10 @@ extension WishlistViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCell.identifier, for: indexPath) as? TableViewCell
             else { return UITableViewCell() }
         
-//        let index = wishList[indexPath.row]
-//        cell.titleLabel.text = index.title ?? ""
-//        cell.authorsLabel.text = index.authors ?? ""
-//        cell.priceLabel.text = "\(index.price)" + " 원"
+        let index = wishList[indexPath.row]
+        cell.titleLabel.text = index.title ?? ""
+        cell.authorsLabel.text = index.authors ?? ""
+        cell.priceLabel.text = "\(index.price)" + " 원"
         
         return cell
     }
