@@ -27,6 +27,7 @@ class DetailViewController: UIViewController {
         (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer
     }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -111,14 +112,14 @@ class DetailViewController: UIViewController {
     }
     
     @objc func saveButtonTapped() {
-        guard let context = self.persistentContainer?.viewContext, let bookResult = self.bookResult else { return }
-        
-        let wishlist = WishList(context: context)
-        
-        wishlist.authors = authorsLabel.text
-        wishlist.title = titleLabel.text
-        wishlist.price = Int32(priceLabel.text)
-        
-        try? context.save()
+//        //guard let context = self.persistentContainer?.viewContext, let bookResult = self.bookResult else { return }
+//
+//        let wishlist = WishList(context: context)
+//        
+//        wishlist.authors = authorsLabel.text
+//        wishlist.title = titleLabel.text
+//        wishlist.price = Int32(priceLabel.text)
+//        
+//        try? context.save()
     }
 }

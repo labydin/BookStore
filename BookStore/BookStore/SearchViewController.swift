@@ -39,7 +39,7 @@ class SearchViewController: UIViewController {
     }()
     
     let networkManager = NetworkManager()
-    private var bookResult: [RemoteBook]? = nil
+    private var bookResult: [RemoteBook] = []
 
 
     override func viewDidLoad() {
@@ -100,18 +100,18 @@ class SearchViewController: UIViewController {
 
 extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return bookResult.count
+        return 5 //bookResult.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.identifier, for: indexPath) as? CollectionViewCell else { return UICollectionViewCell() }
         
-        cell.titleLabel.text = bookResult?.title
-        cell.authorLabel.text = bookResult?.authors
-        if let data = try? Data(contentsOf: bookResult!.thumbnail), let image = UIImage(data: data) {
-            cell.thumbnailImage.image = image
-        }
-        cell.priceLabel.text = "\(String(describing: bookResult?.price))" + " 원"
+//        cell.titleLabel.text = bookResult.title
+//        cell.authorLabel.text = bookResult.authors
+//        if let data = try? Data(contentsOf: bookResult.thumbnail), let image = UIImage(data: data) {
+//            cell.thumbnailImage.image = image
+//        }
+//        cell.priceLabel.text = "\(String(describing: bookResult.price))" + " 원"
         
         return cell
     }
